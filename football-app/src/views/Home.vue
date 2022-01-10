@@ -15,10 +15,10 @@ export default {
    
   },
   created(){
-    this.$store.dispatch('fetchAreas')
+    // this.$store.dispatch('fetchAreas')
     // this.$store.dispatch('fetchClubsArea')
     // this.$store.dispatch('fetchClub')
-    // this.$store.dispatch('fetchPlayerDetail')
+    this.$store.dispatch('fetchPlayerDetail')
 
 
   }

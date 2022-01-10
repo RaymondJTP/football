@@ -8,7 +8,7 @@
                 <router-link  :to="{ name: 'Home' }">
                     <a>Home</a>
                 </router-link>
-                <router-link  :to="{ name: 'FootballSearch' }">
+                <router-link  :to="{ name: 'FootballAreas' }">
                     <a>Football Search</a>
                 </router-link>
 

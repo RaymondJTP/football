@@ -7,8 +7,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    areas : [],
+    areas : {},
+    areaId : '',
     clubs: [],
+    clubId : '',
     club: {},
     player : {}
   },
@@ -24,6 +26,12 @@ export default new Vuex.Store({
     },
     SET_PLAYER(state,payload){
       state.player = payload
+    },
+    SET_AREA_ID(state,payload){
+      state.areaId = payload
+    },
+    SET_CLUB_ID(state,payload){
+      state.clubId = payload
     }
   },
   actions: {
@@ -38,8 +46,10 @@ export default new Vuex.Store({
       })
     },
     fetchClubsArea(context){
-      http.get(`/teams?areas=2072`)
+      const areaId = context.state.areaId
+      http.get(`/teams?areas=${areaId}`)
       .then(response => {
+        console.log('masuk fetch clubsarea');
         console.log(response.data);
         context.commit('SET_CLUBS_AREA', response.data)
       })
@@ -48,7 +58,8 @@ export default new Vuex.Store({
       })
     },
     fetchClub(context){
-      http.get(`/teams/57`)
+      const clubId = context.state.clubId
+      http.get(`/teams/${clubId}`)
       .then(response => {
         console.log(response.data);
         context.commit('SET_CLUB', response.data)

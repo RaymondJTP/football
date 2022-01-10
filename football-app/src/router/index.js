@@ -11,13 +11,20 @@ const routes = [
     component: Home
   },
   {
-    path: '/footballsearch',
-    name: 'FootballSearch',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/FootballSearch.vue')
-  }
+    path: '/footballareas',
+    name: 'FootballAreas',
+    component: () => import('../views/FootballAreas.vue')
+  },
+  {
+    path: '/footballclubs/:id',
+    name: 'FootballClubs',
+    component: () => import('../components/FootballClubs')
+  },
+  {
+    path: '/clubdetail/:id',
+    name: 'ClubDetail',
+    component: () => import('../components/ClubDetail')
+  },
 ]
 
 const router = new VueRouter({
