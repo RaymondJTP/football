@@ -10,7 +10,7 @@
       <div class="modal-content">
         <div class="text-center mt-4">
           <h5 class="modal-title text-center" id="exampleModalLabel">
-            Tambahkan Vaksin Baru
+            Detail Player
           </h5>
         </div>
         <div class="modal-body">
