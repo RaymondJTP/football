@@ -33,12 +33,12 @@ C. Setup Instructions
 8. Check interaction each page by using router.
 
 
-![Home](./football-app/src/assets/Football-App-Home.JPG)
-![Football-Info](./football-app/src/assets/Football-App-Football-Info-Area.JPG)
-![Clubs-Area](./football-app/src/assets/Football-App-Football-Table-Clubs-in-Area.JPG)
-![Clubs-Detail](./football-app/src/assets/Football-App-Football-Detail-Club.JPG)
-![Player-Detail](./football-app/src/assets/Football-App-Football-Detail-Player.JPG)
-![Loading](./football-app/src/assets/Football-App-Football-Loading.JPG.png)
+![Home](./src/assets/Football-App-Home.JPG)
+![Football-Info](./src/assets/Football-App-Football-Info-Area.JPG)
+![Clubs-Area](./src/assets/Football-App-Football-Table-Clubs-in-Area.JPG)
+![Clubs-Detail](./src/assets/Football-App-Football-Detail-Club.JPG)
+![Player-Detail](./src/assets/Football-App-Football-Detail-Player.JPG)
+![Loading](./src/assets/Football-App-Football-Loading.JPG.png)
 
 
 Link Deploy:
