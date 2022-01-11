@@ -1,5 +1,8 @@
 Football App
 
+Link Deploy:
+https://football-jojonomic.web.app
+
 Football App is a application that shows data of football on Earth. The data is get from third party API https://www.football-data.org. There are total 4 endpoints to build Football App. 
 
 
@@ -41,8 +44,7 @@ C. Setup Instructions
 ![Loading](./football-app/src/assets/Football-App-Football-Loading.JPG.png)
 
 
-Link Deploy:
-https://football-jojonomic.web.app
+
 
 
 
