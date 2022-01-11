@@ -1,30 +1,36 @@
 <template>
   <div>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">No.</th>
-          <th scope="col">Player Name</th>
-          <th scope="col">Position</th>
-          <th scope="col">Nationality</th>
-          <th scope="col">Detail</th>
-        </tr>
-      </thead>
-      <tbody v-for="(player, index) in club.squad" :key="index">
-        <tr>
-          <th>{{ index + 1 }}</th>
-          <td>{{ player.name }}</td>
-          <td>{{ player.position }}</td>
-          <td>{{ player.nationality }}</td>
-          <td>
-            <button class="btn btn-outline-info" @click="detailPlayer(player.id)"> 
-              Player Detail
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <modal-player />
+    
+    <div v-if="!club.squad.length">
+      No Squad Founded At This Club
+    </div>
+    <div v-if="club.squad.length" class="mt-3">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Player Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Nationality</th>
+            <th scope="col">Detail</th>
+          </tr>
+        </thead>
+        <tbody v-for="(player, index) in club.squad" :key="index">
+          <tr>
+            <th>{{ index + 1 }}</th>
+            <td>{{ player.name }}</td>
+            <td>{{ player.position }}</td>
+            <td>{{ player.nationality }}</td>
+            <td>
+              <button class="btn btn-outline-info" @click="detailPlayer(player.id)"> 
+                Player Detail
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <modal-player />
+    </div>
   </div>
 </template>
 
@@ -48,7 +54,6 @@ export default {
       http.get(`/players/${playerId}`)
       .then(response =>{
         const player = response.data
-        console.log(response.data);
         Swal.fire({
           title: `${player.name}`,
           html: 

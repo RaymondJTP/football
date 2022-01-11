@@ -9,10 +9,12 @@ export default new Vuex.Store({
   state: {
     areas : {},
     areaId : '',
-    clubs: [],
+    clubs: {},
     clubId : '',
     club: {},
-    player : {}
+    player : {},
+    areaName : '',
+    loading : ''
   },
   mutations: {
     SET_AREAS(state,payload){
@@ -20,6 +22,7 @@ export default new Vuex.Store({
     },
     SET_CLUBS_AREA(state,payload){
       state.clubs = payload
+      state.areaName = payload.teams.length? payload.teams[0].area.name : ''
     },
     SET_CLUB(state,payload){
       state.club = payload
@@ -32,47 +35,61 @@ export default new Vuex.Store({
     },
     SET_CLUB_ID(state,payload){
       state.clubId = payload
+    },
+    SET_LOADING(state,payload){
+      state.loading = payload
     }
   },
   actions: {
     fetchAreas(context){
+      context.commit('SET_LOADING', true)
       http.get('/areas')
       .then(response => {
         console.log(response.data);
         context.commit('SET_AREAS', response.data)
+        context.commit('SET_LOADING', false)
+
       }) 
       .catch(err => {
         console.log(err);
       })
     },
     fetchClubsArea(context){
+      context.commit('SET_LOADING', true)
       const areaId = context.state.areaId
       http.get(`/teams?areas=${areaId}`)
       .then(response => {
-        console.log('masuk fetch clubsarea');
+        
         console.log(response.data);
+        context.commit('SET_LOADING', false)
         context.commit('SET_CLUBS_AREA', response.data)
+
       })
       .catch(err =>{
         console.log(err);
       })
     },
     fetchClub(context){
+      context.commit('SET_LOADING', true)
       const clubId = context.state.clubId
       http.get(`/teams/${clubId}`)
       .then(response => {
         console.log(response.data);
         context.commit('SET_CLUB', response.data)
+        context.commit('SET_LOADING', false)
+
       })
       .catch(err =>{
         console.log(err);
       })
     },
     fetchPlayerDetail(context){
+      context.commit('SET_LOADING', true)
       http.get(`/players/110`)
       .then(response =>{
         console.log(response.data);
         context.commit('SET_PLAYER', response.data)
+        context.commit('SET_LOADING', false)
       })
       .catch(err =>{
         console.log(err);

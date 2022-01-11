@@ -1,5 +1,5 @@
 <template>
-   <table class="table">
+   <table v-if="clubs.count > 0" class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">No.</th>
@@ -22,7 +22,7 @@
               <a href="">{{club.website}}</a>
           </td>
           <td>
-              <button @click="viewClub(club.id)">View Club</button>
+              <button class="btn btn-outline-info" @click="viewClub(club.id)">View Club</button>
           </td>
         </tr>
       </tbody>
